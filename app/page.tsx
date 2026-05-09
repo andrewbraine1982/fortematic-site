@@ -1,25 +1,67 @@
 import React from "react";
 
+const products = [
+  {
+    name: "GLP-1 Support",
+    desc: "Support healthy appetite signalling and metabolic function.",
+    bg: "#e9f1ff",
+    color: "#1463ff"
+  },
+  {
+    name: "Digestive Health",
+    desc: "Daily fiber for gut health, regularity and lasting fullness.",
+    bg: "#fff0dc",
+    color: "#f28a00"
+  },
+  {
+    name: "Energy & Longevity",
+    desc: "Cellular energy, vitality and healthy ageing support.",
+    bg: "#f1e6ff",
+    color: "#7c3aed"
+  },
+  {
+    name: "Hormone Balance",
+    desc: "Targeted support for healthy hormone metabolism.",
+    bg: "#e6f6e9",
+    color: "#159447"
+  }
+];
+
 export default function Home() {
   return (
-    <main style={{ fontFamily: "Arial, sans-serif", color: "#0b0b0b", background: "#fff" }}>
+    <main
+      style={{
+        fontFamily: "Arial, sans-serif",
+        color: "#111",
+        background: "#fff"
+      }}
+    >
       <TopBar />
-      <Nav />
+      <Header />
       <Hero />
       <TrustBar />
-      <ShopByGoal />
-      <GLPSection />
-      <Journal />
-      <WhyFortematic />
+      <Products />
+      <Science />
       <Newsletter />
-      <FooterSection />
+      <Footer />
     </main>
   );
 }
 
 function TopBar() {
   return (
-    <div style={{ background: "#080808", color: "#fff", padding: "14px 40px", display: "flex", justifyContent: "space-between", fontWeight: 700, fontSize: 14 }}>
+    <div
+      style={{
+        background: "#080808",
+        color: "#fff",
+        padding: "14px 40px",
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: 13,
+        letterSpacing: 1,
+        fontWeight: 700
+      }}
+    >
       <span>SUBSCRIBE & SAVE 15%</span>
       <span>FREE SHIPPING ON ORDERS OVER €50</span>
       <span>SCIENCE-BACKED. PLANT-POWERED.</span>
@@ -28,20 +70,29 @@ function TopBar() {
   );
 }
 
-function Nav() {
+function Header() {
   return (
-    <nav style={{ height: 86, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 52px", borderBottom: "1px solid #eee", background: "#fff" }}>
-      <div style={{ fontSize: 38, fontWeight: 900, letterSpacing: -2 }}>Fortematic®</div>
-      <div style={{ display: "flex", gap: 42, fontWeight: 700 }}>
-        <span>Shop All⌄</span>
-        <span>Science⌄</span>
-        <span>GLP-1 Support⌄</span>
-        <span>Health Goals⌄</span>
-        <span>About⌄</span>
-        <span>Learn⌄</span>
-      </div>
-      <div style={{ display: "flex", gap: 24, fontSize: 24 }}>⌕ ♙ 🛍</div>
-    </nav>
+    <header
+      style={{
+        padding: "28px 7vw",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "absolute",
+        width: "100%",
+        zIndex: 10,
+        color: "#111"
+      }}
+    >
+      <div style={{ fontSize: 34, fontWeight: 900 }}>FORTE<span style={{ color: "#7c3aed" }}>MATIC</span></div>
+
+      <nav style={{ display: "flex", gap: 34, fontWeight: 700 }}>
+        <span>Shop</span>
+        <span>Science</span>
+        <span>About</span>
+        <span>Reviews</span>
+      </nav>
+    </header>
   );
 }
 
@@ -50,7 +101,7 @@ function Hero() {
     <section
       style={{
         position: "relative",
-        minHeight: 760,
+        minHeight: 850,
         backgroundImage: "url('/hero-banner.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -59,18 +110,51 @@ function Hero() {
         padding: "90px 7vw"
       }}
     >
-      <div style={{ maxWidth: 690 }}>
+      <div
+        style={{
+          maxWidth: 700,
+          background: "rgba(255,255,255,0.84)",
+          backdropFilter: "blur(10px)",
+          borderRadius: 38,
+          padding: "58px 60px",
+          boxShadow: "0 30px 80px rgba(0,0,0,.15)"
+        }}
+      >
         <div style={pill}>✶ SCIENCE-BACKED. PLANT-POWERED.</div>
 
-        <h1 style={{ fontSize: 92, lineHeight: 0.92, letterSpacing: -5, margin: 0, fontWeight: 900 }}>
+        <h1
+          style={{
+            fontSize: 88,
+            lineHeight: 0.92,
+            letterSpacing: -5,
+            margin: "24px 0 0",
+            fontWeight: 900
+          }}
+        >
           Elevate your everyday{" "}
-          <span style={{ fontFamily: "Georgia, serif", fontStyle: "italic", color: "#7c3aed", fontWeight: 400 }}>
+          <span
+            style={{
+              fontFamily: "Georgia, serif",
+              fontStyle: "italic",
+              color: "#7c3aed",
+              fontWeight: 400
+            }}
+          >
             health.
           </span>
         </h1>
 
-        <p style={{ fontSize: 24, lineHeight: 1.55, color: "#333", maxWidth: 620, marginTop: 34 }}>
-          Premium supplements designed to support GLP-1 function, metabolism, energy, digestion and long-term well-being.
+        <p
+          style={{
+            fontSize: 26,
+            lineHeight: 1.5,
+            color: "#333",
+            marginTop: 32,
+            maxWidth: 600
+          }}
+        >
+          Premium supplements designed to support GLP-1 function,
+          metabolism, energy, digestion and long-term wellbeing.
         </p>
 
         <div style={{ display: "flex", gap: 18, marginTop: 36 }}>
@@ -78,7 +162,14 @@ function Hero() {
           <button style={btnWhite}>Take the Quiz →</button>
         </div>
 
-        <div style={{ marginTop: 28, fontWeight: 800, textDecoration: "underline" }}>
+        <div
+          style={{
+            marginTop: 30,
+            fontWeight: 800,
+            textDecoration: "underline",
+            fontSize: 18
+          }}
+        >
           Explore the Science →
         </div>
       </div>
@@ -88,139 +179,180 @@ function Hero() {
 
 function TrustBar() {
   return (
-    <section style={{ padding: "40px 7vw" }}>
-      <div style={{ background: "#fff", border: "1px solid #e7e7e7", borderRadius: 18, boxShadow: "0 18px 45px rgba(0,0,0,.08)", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-        <Trust title="Clean & Safe" copy="No fillers. No junk." />
-        <Trust title="Third-party Tested" copy="For purity & potency." />
-        <Trust title="Made in USA" copy="GMP Certified Facility" />
-        <Trust title="20,000+" copy="Happy Customers" />
-      </div>
-    </section>
-  );
-}
-
-function Trust({ title, copy }: { title: string; copy: string }) {
-  return (
-    <div style={{ padding: 32, borderRight: "1px solid #eee" }}>
-      <strong>{title}</strong>
-      <br />
-      <span style={{ color: "#666" }}>{copy}</span>
-    </div>
-  );
-}
-
-function ShopByGoal() {
-  return (
-    <section style={{ padding: "70px 7vw" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 30 }}>
-        <div>
-          <div style={eyebrow}>✶ SHOP BY GOAL</div>
-          <h2 style={h2}>Find what <em>your</em> body needs.</h2>
+    <section
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4,1fr)",
+        borderTop: "1px solid #eee",
+        borderBottom: "1px solid #eee",
+        background: "#fff"
+      }}
+    >
+      {[
+        ["Clean & Safe", "No fillers. No junk."],
+        ["Third-party Tested", "For purity & potency."],
+        ["Made in USA", "GMP Certified Facility"],
+        ["Fast Shipping", "Tracked global delivery"]
+      ].map(([a, b]) => (
+        <div
+          key={a}
+          style={{
+            padding: 34,
+            borderRight: "1px solid #eee"
+          }}
+        >
+          <strong style={{ fontSize: 18 }}>{a}</strong>
+          <div style={{ marginTop: 8, color: "#666" }}>{b}</div>
         </div>
-        <strong>View all products →</strong>
-      </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }}>
-        <ProductCard title="GLP-1 Support" copy="Support healthy appetite signalling and metabolic function." bg="#e9f1ff" color="#1463ff" />
-        <ProductCard title="Digestive Health" copy="Daily fiber for gut health, regularity and lasting fullness." bg="#fff0dc" color="#f28a00" />
-        <ProductCard title="Energy & Longevity" copy="Cellular energy, vitality and healthy ageing support." bg="#f1e6ff" color="#7c3aed" />
-        <ProductCard title="Hormone Balance" copy="Targeted support for healthy hormone metabolism." bg="#e6f6e9" color="#159447" />
-      </div>
+      ))}
     </section>
   );
 }
 
-function ProductCard({ title, copy, bg, color }: { title: string; copy: string; bg: string; color: string }) {
+function Products() {
   return (
-    <div style={{ background: bg, borderRadius: 16, padding: 28, minHeight: 330 }}>
-      <h3 style={{ fontSize: 24, margin: 0 }}>{title}</h3>
-      <p style={{ color: "#333", lineHeight: 1.5 }}>{copy}</p>
-      <div style={{ height: 160, borderRadius: 18, background: "#fff", marginTop: 22, display: "flex", alignItems: "center", justifyContent: "center", color, fontSize: 30, fontWeight: 900 }}>
-        {title}
-      </div>
-      <p style={{ fontWeight: 900 }}>Shop Now →</p>
-    </div>
-  );
-}
-
-function GLPSection() {
-  return (
-    <section style={{ padding: "90px 7vw", display: "grid", gridTemplateColumns: "1fr 1.3fr", gap: 60, alignItems: "center" }}>
-      <div>
-        <div style={eyebrow}>✶ HOW IT WORKS</div>
-        <h2 style={h2}>Understanding GLP-1<br /><em>the body’s appetite regulator.</em></h2>
-        <p style={{ fontSize: 18, lineHeight: 1.7, color: "#444" }}>
-          GLP-1 is a natural hormone your body produces to help regulate appetite, food intake and metabolism. Fortematic GLP-1 Support is designed to support healthy metabolic function.
-        </p>
-        <strong style={{ textDecoration: "underline" }}>Learn more about GLP-1 →</strong>
-      </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 22 }}>
-        <Step number="1" title="You eat" copy="Food enters your stomach." />
-        <Step number="2" title="GLP-1 is released" copy="Your gut releases GLP-1 in response to food." />
-        <Step number="3" title="Signals are sent" copy="Signals help regulate appetite." />
-        <Step number="4" title="You feel full" copy="Helping you feel satisfied longer." />
-      </div>
-    </section>
-  );
-}
-
-function Step({ number, title, copy }: { number: string; title: string; copy: string }) {
-  return (
-    <div style={{ textAlign: "center" }}>
-      <div style={{ width: 64, height: 64, borderRadius: 999, border: "1px solid #ccc", margin: "0 auto 18px", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 22 }}>
-        {number}
-      </div>
-      <strong>{title}</strong>
-      <p style={{ fontSize: 14, color: "#666", lineHeight: 1.4 }}>{copy}</p>
-    </div>
-  );
-}
-
-function Journal() {
-  const posts = [
-    "What is GLP-1? The Hormone Behind Appetite & Metabolism",
-    "8 Ways to Support Healthy GLP-1 Levels Naturally",
-    "Fiber for Fullness: How It Supports Weight Management",
-    "NAD+ & Healthy Aging: What Science Says"
-  ];
-
-  return (
-    <section style={{ padding: "80px 7vw", background: "#faf9f6" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 30 }}>
+    <section style={{ padding: "110px 7vw" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "end",
+          marginBottom: 50
+        }}
+      >
         <div>
-          <div style={eyebrow}>✶ THE FORTEMATIC JOURNAL</div>
-          <h2 style={h2}>Science-backed insights. <em>Real results.</em></h2>
+          <div style={pill}>BESTSELLERS</div>
+
+          <h2
+            style={{
+              fontSize: 64,
+              lineHeight: 1,
+              marginTop: 24,
+              marginBottom: 0
+            }}
+          >
+            Daily support for{" "}
+            <span
+              style={{
+                color: "#7c3aed",
+                fontFamily: "Georgia, serif",
+                fontStyle: "italic"
+              }}
+            >
+              modern wellness.
+            </span>
+          </h2>
         </div>
-        <strong>View all articles →</strong>
+
+        <button style={btnWhite}>View All →</button>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 28 }}>
-        {posts.map((title, i) => (
-          <article key={title} style={{ background: "#fff", border: "1px solid #eee", borderRadius: 12, overflow: "hidden" }}>
-            <div style={{ height: 150, background: ["#dbeafe", "#ffedd5", "#f3e8ff", "#dcfce7"][i] }} />
-            <div style={{ padding: 24 }}>
-              <h3 style={{ fontSize: 20, lineHeight: 1.25 }}>{title}</h3>
-              <p style={{ color: "#777" }}>May 2024 · 7 min read</p>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4,1fr)",
+          gap: 24
+        }}
+      >
+        {products.map((p) => (
+          <div
+            key={p.name}
+            style={{
+              background: p.bg,
+              borderRadius: 30,
+              padding: 34,
+              minHeight: 340
+            }}
+          >
+            <div
+              style={{
+                width: 82,
+                height: 82,
+                borderRadius: 24,
+                background: p.color,
+                marginBottom: 26
+              }}
+            />
+
+            <h3 style={{ fontSize: 30, marginBottom: 14 }}>{p.name}</h3>
+
+            <p style={{ color: "#555", lineHeight: 1.7 }}>{p.desc}</p>
+
+            <div
+              style={{
+                marginTop: 30,
+                fontWeight: 800
+              }}
+            >
+              Shop Now →
             </div>
-          </article>
+          </div>
         ))}
       </div>
     </section>
   );
 }
 
-function WhyFortematic() {
+function Science() {
   return (
-    <section style={{ padding: "70px 7vw" }}>
-      <div style={eyebrow}>✶ WHY FORTEMATIC</div>
-      <h2 style={h2}>Real support <em>for real life.</em></h2>
+    <section
+      style={{
+        padding: "120px 7vw",
+        background: "#080808",
+        color: "#fff"
+      }}
+    >
+      <div style={pillDark}>FORMULATED WITH SCIENCE</div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 30, marginTop: 35 }}>
-        {["Plant-Powered Formulas", "Clinically Informed", "Targeted Solutions", "Sustainable Wellness"].map((title) => (
-          <div key={title}>
-            <h3>{title}</h3>
-            <p style={{ color: "#666", lineHeight: 1.6 }}>Clean, effective support for modern health challenges.</p>
+      <h2
+        style={{
+          fontSize: 72,
+          lineHeight: 1,
+          marginTop: 26,
+          maxWidth: 900
+        }}
+      >
+        Ingredients designed to work{" "}
+        <span
+          style={{
+            color: "#b88cff",
+            fontFamily: "Georgia, serif",
+            fontStyle: "italic",
+            fontWeight: 400
+          }}
+        >
+          with your body.
+        </span>
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3,1fr)",
+          gap: 30,
+          marginTop: 70
+        }}
+      >
+        {[
+          "Psyllium Husk",
+          "Berberine",
+          "Resveratrol"
+        ].map((x) => (
+          <div
+            key={x}
+            style={{
+              border: "1px solid #333",
+              borderRadius: 28,
+              padding: 34,
+              background: "#111"
+            }}
+          >
+            <h3 style={{ fontSize: 30 }}>{x}</h3>
+
+            <p style={{ color: "#aaa", lineHeight: 1.8 }}>
+              Clinically researched ingredients selected to support metabolism,
+              digestive health and cellular wellbeing.
+            </p>
           </div>
         ))}
       </div>
@@ -230,90 +362,180 @@ function WhyFortematic() {
 
 function Newsletter() {
   return (
-    <section style={{ padding: "60px 7vw", background: "linear-gradient(90deg,#faf5ff,#fff7ed)" }}>
-      <h2 style={{ fontSize: 42, margin: 0 }}>Join the Fortematic family.</h2>
-      <p style={{ color: "#555", fontSize: 18 }}>Get exclusive offers, product launches and wellness tips.</p>
-      <div style={{ display: "flex", gap: 16, maxWidth: 700 }}>
-        <input placeholder="Your email address" style={{ flex: 1, padding: "18px 24px", borderRadius: 999, border: "1px solid #ddd" }} />
-        <button style={btnBlack}>Sign up</button>
+    <section
+      style={{
+        padding: "120px 7vw",
+        textAlign: "center"
+      }}
+    >
+      <div style={pill}>JOIN THE COMMUNITY</div>
+
+      <h2
+        style={{
+          fontSize: 70,
+          lineHeight: 1,
+          marginTop: 24
+        }}
+      >
+        Wellness insights delivered{" "}
+        <span
+          style={{
+            color: "#7c3aed",
+            fontFamily: "Georgia, serif",
+            fontStyle: "italic",
+            fontWeight: 400
+          }}
+        >
+          weekly.
+        </span>
+      </h2>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 16,
+          marginTop: 40
+        }}
+      >
+        <input
+          placeholder="Enter your email"
+          style={{
+            width: 420,
+            padding: "22px 24px",
+            borderRadius: 999,
+            border: "1px solid #ddd",
+            fontSize: 18
+          }}
+        />
+
+        <button style={btnBlack}>Subscribe →</button>
       </div>
     </section>
   );
 }
 
-function FooterSection() {
+function Footer() {
   return (
-    <footer style={{ background: "#080808", color: "#fff", padding: "80px 7vw" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1.5fr", gap: 50 }}>
+    <footer
+      style={{
+        background: "#080808",
+        color: "#fff",
+        padding: "90px 7vw"
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr 1fr",
+          gap: 40
+        }}
+      >
         <div>
-          <h2 style={{ fontSize: 38 }}>Fortematic®</h2>
-          <p style={{ color: "#aaa", lineHeight: 1.7 }}>Science-backed supplements for modern health and everyday wellness.</p>
+          <div style={{ fontSize: 38, fontWeight: 900 }}>
+            FORTE<span style={{ color: "#b88cff" }}>MATIC</span>
+          </div>
+
+          <p
+            style={{
+              color: "#aaa",
+              lineHeight: 1.8,
+              marginTop: 20,
+              maxWidth: 420
+            }}
+          >
+            Science-backed supplements for modern health and everyday wellness.
+          </p>
         </div>
-        <Footer title="SHOP" items={["All Products", "GLP-1 Support", "Digestive Health", "Energy & Longevity", "Hormone Balance"]} />
-        <Footer title="LEARN" items={["Science", "Journal", "Ingredients", "FAQ", "Contact"]} />
-        <Footer title="ABOUT" items={["Our Story", "Quality Standards", "Sustainability", "Affiliate Program"]} />
-        <Footer title="TRUST" items={["Made in USA", "Third-party Tested", "30-Day Guarantee"]} />
+
+        <FooterCol
+          title="SHOP"
+          items={["GLP-1 Support", "Digestive Health", "Energy", "Hormone"]}
+        />
+
+        <FooterCol
+          title="LEARN"
+          items={["Science", "Ingredients", "FAQ", "Contact"]}
+        />
+
+        <FooterCol
+          title="ABOUT"
+          items={["Our Story", "Quality", "Sustainability", "Reviews"]}
+        />
       </div>
 
-      <div style={{ borderTop: "1px solid #333", marginTop: 60, paddingTop: 30, color: "#888" }}>
-        🇪🇺 EU · © 2024 Fortematic®. All rights reserved.
+      <div
+        style={{
+          borderTop: "1px solid #333",
+          marginTop: 70,
+          paddingTop: 26,
+          color: "#777"
+        }}
+      >
+        © 2026 Fortematic. All rights reserved.
       </div>
     </footer>
   );
 }
 
-function Footer({ title, items }: { title: string; items: string[] }) {
+function FooterCol({
+  title,
+  items
+}: {
+  title: string;
+  items: string[];
+}) {
   return (
     <div>
       <h4 style={{ color: "#777" }}>{title}</h4>
-      {items.map((item) => (
-        <p key={item} style={{ color: "#ddd" }}>{item}</p>
+
+      {items.map((x) => (
+        <p key={x}>{x}</p>
       ))}
     </div>
   );
 }
-
-const pill = {
-  display: "inline-block",
-  background: "#f0e8ff",
-  padding: "10px 18px",
-  borderRadius: 999,
-  fontWeight: 900,
-  fontSize: 13,
-  marginBottom: 30
-};
 
 const btnBlack = {
   background: "#080808",
   color: "#fff",
   border: "none",
   borderRadius: 999,
-  padding: "18px 32px",
-  fontWeight: 900,
+  padding: "20px 34px",
+  fontWeight: 800,
+  fontSize: 17,
   cursor: "pointer"
 };
 
 const btnWhite = {
-  background: "rgba(255,255,255,.75)",
+  background: "#fff",
   color: "#080808",
-  border: "1px solid #080808",
+  border: "1px solid #111",
   borderRadius: 999,
-  padding: "18px 32px",
-  fontWeight: 900,
+  padding: "20px 34px",
+  fontWeight: 800,
+  fontSize: 17,
   cursor: "pointer"
 };
 
-const eyebrow = {
+const pill = {
+  display: "inline-block",
+  background: "#efe4ff",
+  color: "#111",
+  padding: "12px 20px",
+  borderRadius: 999,
   fontSize: 13,
-  fontWeight: 900,
-  letterSpacing: 1,
-  marginBottom: 14
+  fontWeight: 800,
+  letterSpacing: 0.5
 };
 
-const h2 = {
-  fontSize: 42,
-  lineHeight: 1.1,
-  letterSpacing: -2,
-  margin: 0,
-  fontWeight: 900
+const pillDark = {
+  display: "inline-block",
+  background: "#1a1a1a",
+  color: "#fff",
+  padding: "12px 20px",
+  borderRadius: 999,
+  fontSize: 13,
+  fontWeight: 800,
+  letterSpacing: 0.5
 };

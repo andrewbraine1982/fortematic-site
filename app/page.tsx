@@ -58,10 +58,10 @@ export default function Home() {
        
 
         <div style={{ marginTop: 48, background: "#fff", border: "1px solid #e7e7e7", borderRadius: 18, boxShadow: "0 18px 45px rgba(0,0,0,.08)", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-          {["Clean & Safe|No fillers. No junk.", "Third-party Tested|For purity & potency.", "Made in USA|GMP Certified Facility", "20,000+|Happy Customers"].map((item) => {
-            const [a,b] = item.split("|");
-            return <div key={a} style={{ padding: 32, borderRight: "1px solid #eee" }}><strong>{a}</strong><br/><span style={{ color: "#666" }}>{b}</span></div>
-          })}
+        {["Clean & Safe|No fillers. No junk.", "Third-party Tested|For purity & potency.", "Made in USA|GMP Certified Facility", "20,000+|Happy Customers"].map((item) => {
+  const [a,b] = item.split("|");
+  return <div key={a} style={{ padding: 32, borderRight: "1px solid #eee" }}><strong>{a}</strong><br/><span style={{ color: "#666" }}>{b}</span></div>
+})}
         </div>
       </section>
 

@@ -3,34 +3,34 @@ import React, { CSSProperties } from "react";
 const products = [
   {
     title: "GLP-1 Support",
-    short: "Appetite, cravings & metabolism",
-    copy: "Support healthy appetite signalling, fullness and metabolic balance.",
+    label: "Appetite & metabolism",
+    copy: "Supports healthy appetite signalling, cravings and metabolic balance.",
     image: "/GLP1.PNG",
-    bg: "linear-gradient(135deg,#dbeafe 0%,#eef6ff 45%,#bcd7ff 100%)",
+    bg: "#eaf3ff",
     accent: "#1463ff"
   },
   {
     title: "Digestive Health",
-    short: "Fiber, fullness & gut health",
-    copy: "Daily fiber support for regularity, satiety and digestive wellness.",
+    label: "Fiber & gut health",
+    copy: "Daily fiber support for regularity, gut comfort and lasting fullness.",
     image: "/FIBER.PNG",
-    bg: "linear-gradient(135deg,#fff1dc 0%,#ffdca8 45%,#ffbd63 100%)",
+    bg: "#fff1dc",
     accent: "#f28a00"
   },
   {
     title: "Energy & Longevity",
-    short: "NAD+, vitality & ageing",
+    label: "NAD+ & vitality",
     copy: "Cellular energy support for healthy ageing and everyday vitality.",
     image: "/NAD.PNG",
-    bg: "linear-gradient(135deg,#f4e7ff 0%,#e2c5ff 45%,#b887ff 100%)",
+    bg: "#f3e7ff",
     accent: "#7c3aed"
   },
   {
     title: "Hormone Balance",
-    short: "DIM+, balance & performance",
+    label: "DIM+ support",
     copy: "Targeted support for healthy hormone metabolism and balance.",
     image: "/DIM.PNG",
-    bg: "linear-gradient(135deg,#e7fbea 0%,#c8f2d0 45%,#8ee5a1 100%)",
+    bg: "#e8f8ec",
     accent: "#159447"
   }
 ];
@@ -42,9 +42,9 @@ export default function Home() {
       <Header />
       <Hero />
       <TrustBar />
-      <ShopByGoal />
+      <ShopYourWay />
       <HowItWorks />
-      <FeaturedProducts />
+      <ProductShowcase />
       <Benefits />
       <Journal />
       <Newsletter />
@@ -67,9 +67,9 @@ function TopBar() {
 function Header() {
   return (
     <header style={header}>
-      <div style={logo}>FORTE<span style={{ color: "#7c3aed" }}>MATIC</span></div>
+      <div style={logo}>ForteMatic</div>
       <nav style={nav}>
-        <span>Shop All</span>
+        <span>Shop all</span>
         <span>Science</span>
         <span>GLP-1 Support</span>
         <span>Health Goals</span>
@@ -86,14 +86,20 @@ function Hero() {
     <section style={hero}>
       <div style={heroShade} />
       <div style={heroText}>
-        <div style={pill}>✶ SCIENCE-BACKED. PLANT-POWERED.</div>
+        <div style={stars}>
+          <span style={{ color: "#4c9b5f", fontSize: 24 }}>★★★★★</span>
+          <span>60,000+ happy customers</span>
+        </div>
+
         <h1 style={heroTitle}>
-          Elevate your everyday <span style={serifPurple}>health.</span>
+          Elevate your everyday <span style={italic}>health.</span>
         </h1>
+
         <p style={heroCopy}>
           Premium supplements designed to support GLP-1 function, metabolism,
           energy, digestion and long-term wellbeing.
         </p>
+
         <div style={{ display: "flex", gap: 18, marginTop: 34 }}>
           <button style={blackBtn}>Shop GLP-1 Support →</button>
           <button style={whiteBtn}>Take the Quiz →</button>
@@ -108,9 +114,9 @@ function TrustBar() {
     <section style={trustBar}>
       {[
         ["Clean Formulas", "No fillers. No junk."],
-        ["Third-Party Tested", "Purity & potency verified."],
+        ["Third-party Tested", "Purity & potency verified."],
         ["Made in USA", "GMP certified facility."],
-        ["Fast Shipping", "Tracked worldwide delivery."]
+        ["Fast Shipping", "Tracked delivery."]
       ].map(([title, copy]) => (
         <div key={title} style={trustItem}>
           <strong>{title}</strong>
@@ -121,32 +127,32 @@ function TrustBar() {
   );
 }
 
-function ShopByGoal() {
+function ShopYourWay() {
   return (
     <section style={section}>
       <div style={sectionHead}>
         <div>
-          <p style={eyebrow}>SHOP BY GOAL</p>
-          <h2 style={h2}>Find what your body needs.</h2>
+          <p style={eyebrow}>SHOP YOUR WAY</p>
+          <h2 style={h2}>
+            Find what <span style={italic}>your</span> body needs.
+          </h2>
         </div>
         <strong>View all products →</strong>
       </div>
 
-      <div style={productGrid}>
-        {products.map((p, i) => (
-          <article key={p.title} style={{ ...premiumCard, background: p.bg }}>
-            <div style={{ position: "relative", zIndex: 2 }}>
-              <p style={{ ...tinyLabel, color: p.accent }}>{p.short}</p>
-              <h3 style={cardTitle}>{p.title}</h3>
-              <p style={cardCopy}>{p.copy}</p>
+      <div style={categoryGrid}>
+        {products.map((p) => (
+          <article key={p.title} style={{ ...categoryCard, background: p.bg }}>
+            <div style={categoryText}>
+              <p style={{ ...smallLabel, color: p.accent }}>{p.label}</p>
+              <h3 style={categoryTitle}>{p.title}</h3>
+              <p style={categoryCopy}>{p.copy}</p>
               <strong>Shop Now →</strong>
             </div>
 
-            <div style={{ ...orb, background: p.accent, right: i % 2 === 0 ? -40 : 70 }} />
-            <div style={stone} />
-            <div style={{ ...productGlow, background: p.accent }} />
-
-            <img src={p.image} alt={p.title} style={productImage} />
+            <div style={{ ...softOrb, background: p.accent }} />
+            <div style={fakeStone} />
+            <img src={p.image} alt={p.title} style={categoryImage} />
           </article>
         ))}
       </div>
@@ -156,27 +162,28 @@ function ShopByGoal() {
 
 function HowItWorks() {
   return (
-    <section style={howSection}>
+    <section style={glpSection}>
       <div>
         <p style={eyebrow}>HOW IT WORKS</p>
-        <h2 style={h2}>Understanding GLP-1, beautifully simplified.</h2>
-        <p style={bigCopy}>
+        <h2 style={h2}>
+          Understanding GLP-1, <span style={italic}>beautifully simplified.</span>
+        </h2>
+        <p style={bodyLarge}>
           GLP-1 is a natural hormone produced in the gut that helps regulate
           appetite, fullness and metabolic signalling.
         </p>
       </div>
 
-      <div style={stepsGrid}>
+      <div style={stepLine}>
         {[
-          ["1", "You eat", "Food enters the digestive system."],
-          ["2", "GLP-1 is released", "Your gut releases GLP-1 in response to nutrients."],
-          ["3", "Signals are sent", "Signals help regulate appetite and fullness."],
-          ["4", "You feel satisfied", "Supporting healthier eating patterns."]
-        ].map(([n, title, copy]) => (
-          <div key={n} style={stepCard}>
+          ["1", "You eat"],
+          ["2", "GLP-1 is released"],
+          ["3", "Signals are sent"],
+          ["4", "You feel satisfied"]
+        ].map(([n, title]) => (
+          <div key={n} style={step}>
             <div style={stepCircle}>{n}</div>
-            <h3>{title}</h3>
-            <p>{copy}</p>
+            <strong>{title}</strong>
           </div>
         ))}
       </div>
@@ -184,23 +191,23 @@ function HowItWorks() {
   );
 }
 
-function FeaturedProducts() {
+function ProductShowcase() {
   return (
-    <section style={featureSection}>
-      <div style={featureText}>
+    <section style={showcase}>
+      <div style={{ maxWidth: 620 }}>
         <p style={eyebrow}>FORMULATED FOR DAILY USE</p>
         <h2 style={h2}>Premium supplement support without the complicated routine.</h2>
-        <p style={bigCopy}>
+        <p style={bodyLarge}>
           From metabolic support to digestion, longevity and hormone balance,
-          Fortematic is designed to make modern wellness simple, bold and consistent.
+          ForteMatic makes modern wellness simple, elevated and consistent.
         </p>
         <button style={blackBtn}>Explore Products →</button>
       </div>
 
-      <div style={floatingShelf}>
+      <div style={showcaseGrid}>
         {products.map((p, i) => (
-          <div key={p.title} style={{ ...miniBottle, transform: `rotate(${[-7, 5, -4, 6][i]}deg)` }}>
-            <img src={p.image} alt={p.title} style={miniBottleImg} />
+          <div key={p.title} style={{ ...showcaseTile, transform: `rotate(${[-4, 3, -3, 4][i]}deg)` }}>
+            <img src={p.image} alt={p.title} style={showcaseImage} />
           </div>
         ))}
       </div>
@@ -210,18 +217,18 @@ function FeaturedProducts() {
 
 function Benefits() {
   return (
-    <section style={darkSection}>
-      <p style={purpleEyebrow}>WHY FORTEMATIC</p>
-      <h2 style={darkH2}>Clean. Tested. Designed for real life.</h2>
+    <section style={benefits}>
+      <p style={purpleEyebrow}>BENEFITS OF FORTEMATIC</p>
+      <h2 style={darkH2}>Clean. Tested. Trusted.</h2>
 
       <div style={benefitGrid}>
         {[
-          ["Metabolic Support", "Designed to support appetite signalling and metabolic wellness."],
-          ["Digestive Health", "Fiber-led support for gut health, regularity and satiety."],
-          ["Cellular Energy", "Support for vitality, ageing and everyday energy."],
-          ["Hormone Balance", "Targeted formulas for modern hormone metabolism needs."],
-          ["Plant-Powered", "Formulas built around clean, premium ingredients."],
-          ["Simple Daily Ritual", "Easy to use, easy to repeat, easy to trust."]
+          ["Metabolic Support", "Support appetite signalling and metabolic wellness."],
+          ["Gut Health", "Daily support for digestion, regularity and fullness."],
+          ["Cellular Energy", "Help support vitality and healthy ageing."],
+          ["Hormone Balance", "Targeted formulas for hormone metabolism."],
+          ["Plant-powered", "Premium ingredients selected with purpose."],
+          ["Simple", "Easy daily wellness without overcomplication."]
         ].map(([title, copy]) => (
           <div key={title} style={benefitCard}>
             <h3>{title}</h3>
@@ -234,25 +241,33 @@ function Benefits() {
 }
 
 function Journal() {
+  const posts = [
+    ["What is GLP-1?", "A simple guide to the hormone behind appetite and fullness.", "/GLP1.PNG", "#eaf3ff"],
+    ["Natural ways to support GLP-1", "How daily habits and ingredients may support metabolic health.", "/FIBER.PNG", "#fff1dc"],
+    ["Fiber supplements and fullness", "Why fiber is a foundational part of digestive wellness.", "/FIBER.PNG", "#fff1dc"],
+    ["NAD+ and healthy ageing", "Understanding cellular energy and long-term vitality.", "/NAD.PNG", "#f3e7ff"]
+  ];
+
   return (
     <section style={{ ...section, background: "#fbfaf8" }}>
-      <p style={eyebrow}>THE FORTEMATIC JOURNAL</p>
-      <h2 style={h2}>Health content built to rank, educate and convert.</h2>
+      <div style={sectionHead}>
+        <div>
+          <p style={eyebrow}>THE FORTEMATIC JOURNAL</p>
+          <h2 style={h2}>Science-backed insights for everyday wellness.</h2>
+        </div>
+        <strong>View all articles →</strong>
+      </div>
 
       <div style={articleGrid}>
-        {[
-          "What is GLP-1?",
-          "Natural ways to support GLP-1",
-          "Fiber supplements and fullness",
-          "NAD+ and healthy ageing"
-        ].map((title, i) => (
+        {posts.map(([title, copy, image, bg]) => (
           <article key={title} style={article}>
-            <div style={{ ...articleVisual, background: products[i].bg }}>
-              <img src={products[i].image} alt={title} style={articleBottle} />
+            <div style={{ ...articleVisual, background: bg }}>
+              <img src={image} alt={title} style={articleImage} />
             </div>
-            <div style={{ padding: 26 }}>
-              <h3 style={{ fontSize: 24 }}>{title}</h3>
-              <p style={{ color: "#777" }}>7 min read →</p>
+            <div style={articleBody}>
+              <h3 style={articleTitle}>{title}</h3>
+              <p style={articleCopy}>{copy}</p>
+              <strong>Read article →</strong>
             </div>
           </article>
         ))}
@@ -266,7 +281,7 @@ function Newsletter() {
     <section style={newsletter}>
       <p style={eyebrow}>JOIN THE COMMUNITY</p>
       <h2 style={h2}>Wellness insights delivered weekly.</h2>
-      <p style={bigCopy}>Exclusive offers, product launches and science-backed health education.</p>
+      <p style={bodyLarge}>Exclusive offers, product launches and science-backed education.</p>
       <div style={{ display: "flex", gap: 14, marginTop: 28 }}>
         <input placeholder="Your email address" style={input} />
         <button style={blackBtn}>Sign up →</button>
@@ -278,7 +293,7 @@ function Newsletter() {
 function Footer() {
   return (
     <footer style={footer}>
-      <div style={logo}>FORTE<span style={{ color: "#b88cff" }}>MATIC</span></div>
+      <div style={{ ...logo, color: "#fff" }}>ForteMatic</div>
       <p style={{ color: "#aaa", maxWidth: 520, lineHeight: 1.8 }}>
         Science-backed supplements for modern health and everyday wellness.
       </p>
@@ -286,13 +301,18 @@ function Footer() {
         <span>Shop</span><span>Science</span><span>Ingredients</span><span>FAQ</span><span>Contact</span>
       </div>
       <div style={{ borderTop: "1px solid #333", marginTop: 60, paddingTop: 30, color: "#666" }}>
-        © 2026 Fortematic. All rights reserved.
+        © 2026 ForteMatic. All rights reserved.
       </div>
     </footer>
   );
 }
 
-const page: CSSProperties = { overflowX: "hidden" };
+const page: CSSProperties = {
+  fontFamily: "Inter, Arial, sans-serif",
+  background: "#fff",
+  color: "#080808",
+  overflowX: "hidden"
+};
 
 const topBar: CSSProperties = {
   background: "#080808",
@@ -318,8 +338,19 @@ const header: CSSProperties = {
   borderBottom: "1px solid #eee"
 };
 
-const logo: CSSProperties = { fontSize: 40, fontWeight: 900, letterSpacing: -2 };
-const nav: CSSProperties = { display: "flex", gap: 28, fontWeight: 800, fontSize: 16 };
+const logo: CSSProperties = {
+  fontSize: 42,
+  fontWeight: 900,
+  letterSpacing: -2,
+  color: "#080808"
+};
+
+const nav: CSSProperties = {
+  display: "flex",
+  gap: 28,
+  fontWeight: 750,
+  fontSize: 16
+};
 
 const hero: CSSProperties = {
   position: "relative",
@@ -334,7 +365,8 @@ const hero: CSSProperties = {
 const heroShade: CSSProperties = {
   position: "absolute",
   inset: 0,
-  background: "linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.9) 34%, rgba(255,255,255,.35) 58%, rgba(255,255,255,0) 100%)"
+  background:
+    "linear-gradient(90deg, rgba(255,255,255,.99) 0%, rgba(255,255,255,.94) 35%, rgba(255,255,255,.36) 62%, rgba(255,255,255,0) 100%)"
 };
 
 const heroText: CSSProperties = {
@@ -344,15 +376,24 @@ const heroText: CSSProperties = {
   maxWidth: 660
 };
 
+const stars: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  gap: 16,
+  fontSize: 20,
+  fontWeight: 700,
+  marginBottom: 22
+};
+
 const heroTitle: CSSProperties = {
-  fontSize: 92,
-  lineHeight: 0.92,
+  fontSize: 88,
+  lineHeight: 0.93,
   letterSpacing: -5,
-  margin: "28px 0 0",
+  margin: 0,
   fontWeight: 900
 };
 
-const serifPurple: CSSProperties = {
+const italic: CSSProperties = {
   fontFamily: "Georgia, serif",
   fontStyle: "italic",
   color: "#7c3aed",
@@ -364,14 +405,6 @@ const heroCopy: CSSProperties = {
   lineHeight: 1.55,
   color: "#333",
   marginTop: 28
-};
-
-const pill: CSSProperties = {
-  display: "inline-block",
-  background: "#efe4ff",
-  padding: "12px 20px",
-  borderRadius: 999,
-  fontWeight: 900
 };
 
 const blackBtn: CSSProperties = {
@@ -408,30 +441,43 @@ const trustItem: CSSProperties = {
   borderRight: "1px solid #eee",
   display: "flex",
   flexDirection: "column",
-  gap: 8
+  gap: 8,
+  fontSize: 17
 };
 
 const section: CSSProperties = { padding: "100px 7vw" };
-const sectionHead: CSSProperties = { display: "flex", justifyContent: "space-between", alignItems: "end" };
-const eyebrow: CSSProperties = { color: "#7c3aed", fontWeight: 900, letterSpacing: 0.5 };
-const purpleEyebrow: CSSProperties = { color: "#b88cff", fontWeight: 900, letterSpacing: 0.5 };
+
+const sectionHead: CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "end",
+  gap: 40
+};
+
+const eyebrow: CSSProperties = {
+  color: "#7c3aed",
+  fontWeight: 900,
+  letterSpacing: 0.5,
+  fontSize: 14
+};
 
 const h2: CSSProperties = {
   fontSize: 60,
   lineHeight: 1,
   letterSpacing: -3,
   maxWidth: 900,
-  margin: "16px 0 0"
+  margin: "16px 0 0",
+  fontWeight: 900
 };
 
-const productGrid: CSSProperties = {
+const categoryGrid: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(4,1fr)",
   gap: 28,
   marginTop: 44
 };
 
-const premiumCard: CSSProperties = {
+const categoryCard: CSSProperties = {
   position: "relative",
   minHeight: 500,
   borderRadius: 34,
@@ -440,53 +486,64 @@ const premiumCard: CSSProperties = {
   boxShadow: "0 22px 55px rgba(0,0,0,.08)"
 };
 
-const tinyLabel: CSSProperties = { fontWeight: 900, fontSize: 13, margin: 0 };
-const cardTitle: CSSProperties = { fontSize: 32, lineHeight: 1.05, margin: "12px 0" };
-const cardCopy: CSSProperties = { fontSize: 17, lineHeight: 1.55, color: "#333" };
+const categoryText: CSSProperties = {
+  position: "relative",
+  zIndex: 3,
+  maxWidth: 260
+};
 
-const productImage: CSSProperties = {
+const smallLabel: CSSProperties = {
+  fontWeight: 900,
+  fontSize: 13,
+  margin: 0
+};
+
+const categoryTitle: CSSProperties = {
+  fontSize: 34,
+  lineHeight: 1.05,
+  margin: "12px 0",
+  fontWeight: 900
+};
+
+const categoryCopy: CSSProperties = {
+  fontSize: 17,
+  lineHeight: 1.55,
+  color: "#333"
+};
+
+const categoryImage: CSSProperties = {
   position: "absolute",
-  right: -5,
-  bottom: -18,
-  width: "78%",
-  maxHeight: 310,
+  right: -10,
+  bottom: -16,
+  width: "72%",
+  maxHeight: 315,
   objectFit: "contain",
-  filter: "drop-shadow(0 24px 28px rgba(0,0,0,.22))",
-  mixBlendMode: "multiply"
+  filter: "drop-shadow(0 24px 28px rgba(0,0,0,.22))"
 };
 
-const productGlow: CSSProperties = {
+const softOrb: CSSProperties = {
   position: "absolute",
-  width: 260,
-  height: 260,
+  right: -30,
+  bottom: 80,
+  width: 210,
+  height: 210,
   borderRadius: 999,
-  right: -40,
-  bottom: 10,
-  opacity: 0.2,
-  filter: "blur(25px)"
+  opacity: 0.16,
+  filter: "blur(6px)"
 };
 
-const orb: CSSProperties = {
+const fakeStone: CSSProperties = {
   position: "absolute",
-  width: 180,
-  height: 180,
-  borderRadius: 999,
-  bottom: 85,
-  opacity: 0.12
-};
-
-const stone: CSSProperties = {
-  position: "absolute",
-  width: 120,
-  height: 72,
+  left: 28,
+  bottom: 28,
+  width: 135,
+  height: 78,
   borderRadius: "50%",
   background: "rgba(255,255,255,.45)",
-  left: 28,
-  bottom: 32,
   transform: "rotate(-10deg)"
 };
 
-const howSection: CSSProperties = {
+const glpSection: CSSProperties = {
   padding: "100px 7vw",
   background: "#fbfaf8",
   display: "grid",
@@ -495,12 +552,41 @@ const howSection: CSSProperties = {
   alignItems: "center"
 };
 
-const bigCopy: CSSProperties = { fontSize: 21, lineHeight: 1.7, color: "#555", maxWidth: 700 };
-const stepsGrid: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 18 };
-const stepCard: CSSProperties = { background: "#fff", border: "1px solid #eee", borderRadius: 24, padding: 24, textAlign: "center" };
-const stepCircle: CSSProperties = { width: 64, height: 64, borderRadius: 999, background: "#efe4ff", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", fontWeight: 900 };
+const bodyLarge: CSSProperties = {
+  fontSize: 21,
+  lineHeight: 1.7,
+  color: "#555",
+  maxWidth: 700
+};
 
-const featureSection: CSSProperties = {
+const stepLine: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(4,1fr)",
+  gap: 18
+};
+
+const step: CSSProperties = {
+  background: "#fff",
+  border: "1px solid #eee",
+  borderRadius: 24,
+  padding: 26,
+  textAlign: "center",
+  boxShadow: "0 16px 35px rgba(0,0,0,.04)"
+};
+
+const stepCircle: CSSProperties = {
+  width: 64,
+  height: 64,
+  borderRadius: 999,
+  background: "#efe4ff",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  margin: "0 auto 16px",
+  fontWeight: 900
+};
+
+const showcase: CSSProperties = {
   padding: "110px 7vw",
   display: "grid",
   gridTemplateColumns: "1fr 1.1fr",
@@ -508,21 +594,133 @@ const featureSection: CSSProperties = {
   alignItems: "center"
 };
 
-const featureText: CSSProperties = { maxWidth: 720 };
-const floatingShelf: CSSProperties = { position: "relative", minHeight: 520, background: "linear-gradient(135deg,#f5f0ff,#fff2df)", borderRadius: 42, display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20, padding: 40 };
-const miniBottle: CSSProperties = { background: "rgba(255,255,255,.6)", borderRadius: 28, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,.1)" };
-const miniBottleImg: CSSProperties = { width: "68%", height: 210, objectFit: "contain", mixBlendMode: "multiply" };
+const showcaseGrid: CSSProperties = {
+  minHeight: 520,
+  background: "linear-gradient(135deg,#f5f0ff,#fff2df)",
+  borderRadius: 42,
+  display: "grid",
+  gridTemplateColumns: "repeat(2,1fr)",
+  gap: 24,
+  padding: 42,
+  boxShadow: "0 24px 70px rgba(0,0,0,.08)"
+};
 
-const darkSection: CSSProperties = { padding: "110px 7vw", background: "#080808", color: "#fff" };
-const darkH2: CSSProperties = { fontSize: 64, lineHeight: 1, maxWidth: 900, marginTop: 18 };
-const benefitGrid: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginTop: 50 };
-const benefitCard: CSSProperties = { background: "#111", border: "1px solid #2b2b2b", borderRadius: 28, padding: 30 };
-const articleGrid: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, marginTop: 44 };
-const article: CSSProperties = { border: "1px solid #eee", borderRadius: 28, overflow: "hidden", background: "#fff" };
-const articleVisual: CSSProperties = { height: 210, display: "flex", alignItems: "center", justifyContent: "center" };
-const articleBottle: CSSProperties = { height: 180, objectFit: "contain", mixBlendMode: "multiply" };
+const showcaseTile: CSSProperties = {
+  background: "rgba(255,255,255,.72)",
+  borderRadius: 28,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  boxShadow: "0 20px 50px rgba(0,0,0,.08)"
+};
 
-const newsletter: CSSProperties = { padding: "90px 7vw", background: "linear-gradient(135deg,#faf5ff,#fff2df)" };
-const input: CSSProperties = { padding: "18px 24px", borderRadius: 999, border: "1px solid #ddd", width: 380, fontSize: 16 };
-const footer: CSSProperties = { background: "#080808", color: "#fff", padding: "80px 7vw" };
-const footerLinks: CSSProperties = { display: "flex", gap: 30, margin: "35px 0", color: "#ddd" };
+const showcaseImage: CSSProperties = {
+  width: "72%",
+  height: 220,
+  objectFit: "contain",
+  filter: "drop-shadow(0 18px 20px rgba(0,0,0,.16))"
+};
+
+const benefits: CSSProperties = {
+  padding: "110px 7vw",
+  background: "#080808",
+  color: "#fff"
+};
+
+const purpleEyebrow: CSSProperties = {
+  color: "#b88cff",
+  fontWeight: 900,
+  letterSpacing: 0.5
+};
+
+const darkH2: CSSProperties = {
+  fontSize: 64,
+  lineHeight: 1,
+  maxWidth: 900,
+  marginTop: 18,
+  fontWeight: 900
+};
+
+const benefitGrid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(3,1fr)",
+  gap: 24,
+  marginTop: 50
+};
+
+const benefitCard: CSSProperties = {
+  background: "#111",
+  border: "1px solid #2b2b2b",
+  borderRadius: 28,
+  padding: 30
+};
+
+const articleGrid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(4,1fr)",
+  gap: 26,
+  marginTop: 44
+};
+
+const article: CSSProperties = {
+  border: "1px solid #eee",
+  borderRadius: 28,
+  overflow: "hidden",
+  background: "#fff",
+  boxShadow: "0 18px 45px rgba(0,0,0,.05)"
+};
+
+const articleVisual: CSSProperties = {
+  height: 210,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+};
+
+const articleImage: CSSProperties = {
+  height: 180,
+  objectFit: "contain",
+  filter: "drop-shadow(0 16px 20px rgba(0,0,0,.14))"
+};
+
+const articleBody: CSSProperties = {
+  padding: 26
+};
+
+const articleTitle: CSSProperties = {
+  fontSize: 24,
+  lineHeight: 1.15,
+  margin: 0,
+  fontWeight: 900
+};
+
+const articleCopy: CSSProperties = {
+  color: "#666",
+  lineHeight: 1.6
+};
+
+const newsletter: CSSProperties = {
+  padding: "90px 7vw",
+  background: "linear-gradient(135deg,#faf5ff,#fff2df)"
+};
+
+const input: CSSProperties = {
+  padding: "18px 24px",
+  borderRadius: 999,
+  border: "1px solid #ddd",
+  width: 380,
+  fontSize: 16
+};
+
+const footer: CSSProperties = {
+  background: "#080808",
+  color: "#fff",
+  padding: "80px 7vw"
+};
+
+const footerLinks: CSSProperties = {
+  display: "flex",
+  gap: 30,
+  margin: "35px 0",
+  color: "#ddd"
+};

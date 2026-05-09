@@ -44,16 +44,18 @@ export default function Home() {
             <div style={{ marginTop: 24, fontWeight: 800, textDecoration: "underline" }}>Explore the Science →</div>
           </div>
 
-          <div style={{ display: "flex", alignItems: "end", justifyContent: "center", gap: 18, minHeight: 520 }}>
-            {products.map(([name, , bg, color], i) => (
-              <div key={name} style={{ width: 170, height: i === 1 ? 390 : 350, borderRadius: 26, background: bg, boxShadow: "0 30px 80px rgba(0,0,0,.12)", display: "flex", alignItems: "center", justifyContent: "center", transform: `translateY(${i % 2 ? -30 : 20}px)` }}>
-                <div style={{ textAlign: "center", color, fontWeight: 900, fontSize: 34, lineHeight: 1 }}>
-                  {name.split(" ")[0]}<br />{name.includes("GLP") ? "" : name.split(" ")[1] || ""}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div style={{ flex: 1 }}>
+  <img
+    src="/ChatGPT Image May 9, 2026, 02_48_14 PM.png"
+    alt="Fortematic Supplements"
+    style={{
+      width: "100%",
+      borderRadius: 24,
+      objectFit: "cover"
+    }}
+  />
+</div>
+       
 
         <div style={{ marginTop: 48, background: "#fff", border: "1px solid #e7e7e7", borderRadius: 18, boxShadow: "0 18px 45px rgba(0,0,0,.08)", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
           {["Clean & Safe|No fillers. No junk.", "Third-party Tested|For purity & potency.", "Made in USA|GMP Certified Facility", "20,000+|Happy Customers"].map((item) => {

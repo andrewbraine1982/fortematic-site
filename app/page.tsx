@@ -6,128 +6,44 @@ export default function Home() {
       style={{
         fontFamily: "Arial, sans-serif",
         background: "#fff",
-        color: "#111"
+        color: "#080808"
       }}
     >
       {/* HEADER */}
 
-      <header
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          zIndex: 20,
-          padding: "34px 70px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center"
-        }}
-      >
-        <div
-          style={{
-            fontSize: 58,
-            fontWeight: 900,
-            letterSpacing: -3
-          }}
-        >
-          FORTE
-          <span style={{ color: "#7c3aed" }}>MATIC</span>
+      <header style={header}>
+        <div style={logo}>
+          FORTE<span style={{ color: "#7c3aed" }}>MATIC</span>
         </div>
 
-        <nav
-          style={{
-            display: "flex",
-            gap: 40,
-            fontWeight: 700,
-            fontSize: 20
-          }}
-        >
-          <span>Shop</span>
+        <nav style={nav}>
+          <span>Shop All</span>
           <span>Science</span>
+          <span>GLP-1 Support</span>
+          <span>Health Goals</span>
           <span>About</span>
+          <span>Learn</span>
         </nav>
+
+        <button style={smallButton}>Shop Now</button>
       </header>
 
       {/* HERO */}
 
-      <section
-        style={{
-          position: "relative",
-          height: "100vh",
-          minHeight: 900,
-          backgroundImage: "url('/hero-banner.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          overflow: "hidden"
-        }}
-      >
-        {/* DARK GRADIENT */}
+      <section style={hero}>
+        <div style={heroFade} />
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.70) 35%, rgba(255,255,255,0) 65%)"
-          }}
-        />
-
-        {/* CONTENT */}
-
-        <div
-          style={{
-            position: "relative",
-            zIndex: 5,
-            maxWidth: 760,
-            paddingLeft: "80px",
-            paddingTop: "240px"
-          }}
-        >
-          <div
-            style={{
-              display: "inline-block",
-              background: "#efe4ff",
-              padding: "14px 22px",
-              borderRadius: 999,
-              fontWeight: 800,
-              fontSize: 16
-            }}
-          >
+        <div style={heroContent}>
+          <div style={pill}>
             ✶ SCIENCE-BACKED. PLANT-POWERED.
           </div>
 
-          <h1
-            style={{
-              fontSize: 120,
-              lineHeight: 0.9,
-              marginTop: 30,
-              marginBottom: 20,
-              fontWeight: 900,
-              letterSpacing: -6
-            }}
-          >
+          <h1 style={h1}>
             Elevate your everyday{" "}
-            <span
-              style={{
-                color: "#7c3aed",
-                fontFamily: "Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: 400
-              }}
-            >
-              health.
-            </span>
+            <span style={italic}>health.</span>
           </h1>
 
-          <p
-            style={{
-              fontSize: 34,
-              lineHeight: 1.45,
-              color: "#333",
-              maxWidth: 650
-            }}
-          >
+          <p style={lead}>
             Premium supplements designed to support GLP-1 function,
             metabolism, energy, digestion and long-term wellbeing.
           </p>
@@ -135,37 +51,15 @@ export default function Home() {
           <div
             style={{
               display: "flex",
-              gap: 24,
-              marginTop: 50
+              gap: 18,
+              marginTop: 34
             }}
           >
-            <button
-              style={{
-                background: "#111",
-                color: "#fff",
-                border: "none",
-                borderRadius: 999,
-                padding: "22px 40px",
-                fontSize: 20,
-                fontWeight: 800,
-                cursor: "pointer"
-              }}
-            >
+            <button style={blackButton}>
               Shop GLP-1 Support →
             </button>
 
-            <button
-              style={{
-                background: "rgba(255,255,255,.8)",
-                color: "#111",
-                border: "1px solid #111",
-                borderRadius: 999,
-                padding: "22px 40px",
-                fontSize: 20,
-                fontWeight: 800,
-                cursor: "pointer"
-              }}
-            >
+            <button style={whiteButton}>
               Take the Quiz →
             </button>
           </div>
@@ -174,184 +68,204 @@ export default function Home() {
 
       {/* TRUST BAR */}
 
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
-          borderTop: "1px solid #eee",
-          borderBottom: "1px solid #eee"
-        }}
-      >
+      <section style={trustGrid}>
         {[
           ["Clean Formulas", "No fillers or junk"],
           ["Third-Party Tested", "Purity & potency verified"],
           ["Made in USA", "GMP certified facility"],
           ["Fast Shipping", "Tracked worldwide delivery"]
-        ].map(([title, text]) => (
-          <div
-            key={title}
-            style={{
-              padding: "38px",
-              borderRight: "1px solid #eee"
-            }}
-          >
-            <div
-              style={{
-                fontWeight: 800,
-                fontSize: 22,
-                marginBottom: 8
-              }}
-            >
-              {title}
-            </div>
+        ].map(([a, b]) => (
+          <div key={a} style={trustItem}>
+            <strong style={{ fontSize: 20 }}>{a}</strong>
 
-            <div
+            <p
               style={{
                 color: "#666",
-                fontSize: 17
+                marginTop: 10
               }}
             >
-              {text}
-            </div>
+              {b}
+            </p>
           </div>
         ))}
       </section>
 
       {/* PRODUCTS */}
 
-      <section
-        style={{
-          padding: "120px 80px"
-        }}
-      >
-        <div
-          style={{
-            marginBottom: 70
-          }}
-        >
-          <div
-            style={{
-              color: "#7c3aed",
-              fontWeight: 800,
-              marginBottom: 20
-            }}
-          >
-            BESTSELLERS
-          </div>
+      <section style={section}>
+        <p style={eyebrow}>BESTSELLERS</p>
 
-          <h2
+        <h2 style={h2}>
+          Daily support for modern wellness.
+        </h2>
+
+        <div style={cards}>
+          <ProductCard
+            title="NAD+ Resveratrol"
+            image="/2 NAD+ Resveratrol Bottle_.jpg"
+            bg="#f3ebff"
+          />
+
+          <ProductCard
+            title="DIM+ Hormone Support"
+            image="/DIM b .jpg"
+            bg="#ebfff0"
+          />
+
+          <ProductCard
+            title="Fiber Supplement"
+            image="/FIBER b .jpg"
+            bg="#fff2e5"
+          />
+
+          <ProductCard
+            title="GLP-1 Probiotic"
+            image="/GLP1 b_(1).jpg"
+            bg="#eaf2ff"
+          />
+        </div>
+      </section>
+
+      {/* SCIENCE */}
+
+      <section style={science}>
+        <div>
+          <p style={eyebrowLight}>
+            SCIENCE-BACKED INGREDIENTS
+          </p>
+
+          <h2 style={h2Light}>
+            Designed to work with your body.
+          </h2>
+
+          <p
             style={{
-              fontSize: 72,
-              lineHeight: 1,
-              maxWidth: 900,
-              margin: 0
+              color: "#aaa",
+              lineHeight: 1.8,
+              fontSize: 20,
+              maxWidth: 650
             }}
           >
-            Daily support for modern wellness.
-          </h2>
+            Fortematic formulations are built using
+            clinically researched ingredients selected
+            to support metabolism, digestion, hormone
+            balance and healthy ageing.
+          </p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4,1fr)",
-            gap: 26
-          }}
-        >
-          {[
-            ["GLP-1 Support", "#e9f1ff", "#1463ff"],
-            ["Digestive Health", "#fff0dc", "#f28a00"],
-            ["Energy & Longevity", "#f1e6ff", "#7c3aed"],
-            ["Hormone Balance", "#e6f6e9", "#159447"]
-          ].map(([title, bg, color]) => (
-            <div
-              key={title}
-              style={{
-                background: bg,
-                borderRadius: 34,
-                padding: 36,
-                minHeight: 320
-              }}
-            >
-              <div
-                style={{
-                  width: 90,
-                  height: 90,
-                  borderRadius: 24,
-                  background: color,
-                  marginBottom: 28
-                }}
-              />
+        <div style={scienceGrid}>
+          <ScienceCard
+            title="Metabolism"
+            text="Support healthy appetite signalling and metabolic wellness."
+          />
 
-              <h3
-                style={{
-                  fontSize: 32,
-                  marginBottom: 14
-                }}
-              >
-                {title}
-              </h3>
+          <ScienceCard
+            title="Digestion"
+            text="Daily gut support and digestive comfort."
+          />
 
-              <p
-                style={{
-                  color: "#555",
-                  lineHeight: 1.7,
-                  fontSize: 18
-                }}
-              >
-                Science-backed support for everyday health and wellness.
-              </p>
+          <ScienceCard
+            title="Longevity"
+            text="Cellular support for energy and healthy ageing."
+          />
 
-              <div
-                style={{
-                  marginTop: 28,
-                  fontWeight: 800
-                }}
-              >
-                Shop Now →
-              </div>
-            </div>
-          ))}
+          <ScienceCard
+            title="Hormones"
+            text="Targeted support for hormone metabolism."
+          />
+        </div>
+      </section>
+
+      {/* JOURNAL */}
+
+      <section style={section}>
+        <p style={eyebrow}>THE FORTEMATIC JOURNAL</p>
+
+        <h2 style={h2}>
+          Educational content designed to inform.
+        </h2>
+
+        <div style={cards}>
+          <Article title="What is GLP-1?" />
+          <Article title="Natural metabolic support" />
+          <Article title="Why fiber matters" />
+          <Article title="Healthy ageing explained" />
+        </div>
+      </section>
+
+      {/* NEWSLETTER */}
+
+      <section style={newsletter}>
+        <div style={{ maxWidth: 760 }}>
+          <p style={eyebrow}>JOIN THE COMMUNITY</p>
+
+          <h2 style={h2}>
+            Wellness insights delivered weekly.
+          </h2>
+
+          <p
+            style={{
+              color: "#555",
+              fontSize: 22,
+              lineHeight: 1.7
+            }}
+          >
+            Exclusive offers, product launches and
+            science-backed health education.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: 16,
+              marginTop: 34
+            }}
+          >
+            <input
+              placeholder="Enter your email"
+              style={input}
+            />
+
+            <button style={blackButton}>
+              Subscribe →
+            </button>
+          </div>
         </div>
       </section>
 
       {/* FOOTER */}
 
-      <footer
-        style={{
-          background: "#0a0a0a",
-          color: "#fff",
-          padding: "90px 80px"
-        }}
-      >
-        <div
-          style={{
-            fontSize: 48,
-            fontWeight: 900,
-            marginBottom: 30
-          }}
-        >
-          FORTE
-          <span style={{ color: "#b88cff" }}>MATIC</span>
+      <footer style={footer}>
+        <div style={logo}>
+          FORTE<span style={{ color: "#b88cff" }}>MATIC</span>
         </div>
 
         <p
           style={{
             color: "#aaa",
-            fontSize: 18,
-            maxWidth: 500,
+            marginTop: 20,
+            maxWidth: 460,
             lineHeight: 1.8
           }}
         >
-          Science-backed supplements for modern health and everyday wellness.
+          Science-backed supplements for modern
+          health and everyday wellness.
         </p>
+
+        <div style={footerLinks}>
+          <span>Shop</span>
+          <span>Science</span>
+          <span>Ingredients</span>
+          <span>FAQ</span>
+          <span>Contact</span>
+        </div>
 
         <div
           style={{
             borderTop: "1px solid #333",
             marginTop: 60,
             paddingTop: 30,
-            color: "#777"
+            color: "#666"
           }}
         >
           © 2026 Fortematic. All rights reserved.
@@ -360,3 +274,330 @@ export default function Home() {
     </main>
   );
 }
+
+/* PRODUCT CARD */
+
+function ProductCard({
+  title,
+  image,
+  bg
+}: {
+  title: string;
+  image: string;
+  bg: string;
+}) {
+  return (
+    <div
+      style={{
+        background: bg,
+        borderRadius: 30,
+        padding: 28,
+        overflow: "hidden"
+      }}
+    >
+      <img
+        src={image}
+        alt={title}
+        style={{
+          width: "100%",
+          height: 300,
+          objectFit: "contain"
+        }}
+      />
+
+      <h3
+        style={{
+          fontSize: 28,
+          marginTop: 12
+        }}
+      >
+        {title}
+      </h3>
+
+      <p
+        style={{
+          color: "#666",
+          lineHeight: 1.7
+        }}
+      >
+        Science-backed support for everyday
+        wellness and performance.
+      </p>
+
+      <strong>Shop Now →</strong>
+    </div>
+  );
+}
+
+/* SCIENCE CARD */
+
+function ScienceCard({
+  title,
+  text
+}: {
+  title: string;
+  text: string;
+}) {
+  return (
+    <div
+      style={{
+        border: "1px solid #2b2b2b",
+        borderRadius: 28,
+        padding: 30,
+        background: "#111"
+      }}
+    >
+      <h3
+        style={{
+          fontSize: 28,
+          marginBottom: 12
+        }}
+      >
+        {title}
+      </h3>
+
+      <p
+        style={{
+          color: "#aaa",
+          lineHeight: 1.7
+        }}
+      >
+        {text}
+      </p>
+    </div>
+  );
+}
+
+/* ARTICLE */
+
+function Article({
+  title
+}: {
+  title: string;
+}) {
+  return (
+    <div
+      style={{
+        border: "1px solid #eee",
+        borderRadius: 26,
+        overflow: "hidden"
+      }}
+    >
+      <div
+        style={{
+          height: 180,
+          background:
+            "linear-gradient(135deg,#f3ebff,#fff2e5)"
+        }}
+      />
+
+      <div style={{ padding: 24 }}>
+        <h3 style={{ fontSize: 26 }}>
+          {title}
+        </h3>
+
+        <p style={{ color: "#777" }}>
+          7 min read
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* STYLES */
+
+const header = {
+  height: 96,
+  padding: "0 60px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  position: "sticky" as const,
+  top: 0,
+  zIndex: 50,
+  background: "#fff",
+  borderBottom: "1px solid #eee"
+};
+
+const logo = {
+  fontSize: 42,
+  fontWeight: 900,
+  letterSpacing: -2
+};
+
+const nav = {
+  display: "flex",
+  gap: 28,
+  fontWeight: 800,
+  fontSize: 16
+};
+
+const hero = {
+  position: "relative" as const,
+  minHeight: 760,
+  backgroundImage: "url('/hero-banner.png')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  alignItems: "center",
+  overflow: "hidden"
+};
+
+const heroFade = {
+  position: "absolute" as const,
+  inset: 0,
+  background:
+    "linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.88) 34%, rgba(255,255,255,.2) 62%, rgba(255,255,255,0) 100%)"
+};
+
+const heroContent = {
+  position: "relative" as const,
+  zIndex: 2,
+  maxWidth: 700,
+  marginLeft: "7vw"
+};
+
+const pill = {
+  display: "inline-block",
+  background: "#efe4ff",
+  padding: "12px 20px",
+  borderRadius: 999,
+  fontWeight: 900
+};
+
+const h1 = {
+  fontSize: 92,
+  lineHeight: 0.92,
+  letterSpacing: -5,
+  marginTop: 24,
+  marginBottom: 0,
+  fontWeight: 900
+};
+
+const italic = {
+  color: "#7c3aed",
+  fontFamily: "Georgia, serif",
+  fontStyle: "italic",
+  fontWeight: 400
+};
+
+const lead = {
+  fontSize: 24,
+  lineHeight: 1.6,
+  color: "#333",
+  marginTop: 30,
+  maxWidth: 620
+};
+
+const blackButton = {
+  background: "#080808",
+  color: "#fff",
+  border: "none",
+  borderRadius: 999,
+  padding: "18px 30px",
+  fontWeight: 900,
+  fontSize: 16
+};
+
+const whiteButton = {
+  background: "#fff",
+  color: "#080808",
+  border: "1px solid #111",
+  borderRadius: 999,
+  padding: "18px 30px",
+  fontWeight: 900,
+  fontSize: 16
+};
+
+const smallButton = {
+  ...blackButton,
+  padding: "14px 24px"
+};
+
+const trustGrid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(4,1fr)"
+};
+
+const trustItem = {
+  padding: 34,
+  borderRight: "1px solid #eee",
+  borderBottom: "1px solid #eee"
+};
+
+const section = {
+  padding: "110px 7vw"
+};
+
+const eyebrow = {
+  color: "#7c3aed",
+  fontWeight: 900
+};
+
+const h2 = {
+  fontSize: 60,
+  lineHeight: 1,
+  letterSpacing: -3,
+  maxWidth: 850,
+  marginTop: 18
+};
+
+const cards = {
+  display: "grid",
+  gridTemplateColumns: "repeat(4,1fr)",
+  gap: 24,
+  marginTop: 44
+};
+
+const science = {
+  padding: "110px 7vw",
+  background: "#080808",
+  color: "#fff",
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: 60
+};
+
+const eyebrowLight = {
+  color: "#b88cff",
+  fontWeight: 900
+};
+
+const h2Light = {
+  fontSize: 58,
+  lineHeight: 1,
+  marginTop: 20
+};
+
+const scienceGrid = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: 24
+};
+
+const newsletter = {
+  padding: "110px 7vw",
+  background:
+    "linear-gradient(135deg,#faf5ff,#fff2e5)"
+};
+
+const input = {
+  padding: "18px 24px",
+  borderRadius: 999,
+  border: "1px solid #ddd",
+  width: 360,
+  fontSize: 16
+};
+
+const footer = {
+  background: "#080808",
+  color: "#fff",
+  padding: "90px 7vw"
+};
+
+const footerLinks = {
+  display: "flex",
+  gap: 30,
+  marginTop: 40,
+  color: "#ddd"
+};
